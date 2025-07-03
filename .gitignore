@@ -11,7 +11,9 @@
 .svn/
 .swiftpm/
 migrate_working_dir/
-
+lib/firebase_options.dart
+android/app/src/main/AndroidManifest.xml
+android/app/src/main/res/values/strings.xml
 # IntelliJ related
 *.iml
 *.ipr
