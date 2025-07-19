@@ -4,6 +4,8 @@ import 'package:fruit_hub/core/services/backend/firestore_service.dart';
 import 'package:fruit_hub/core/services/local/local_storage.dart';
 import 'package:fruit_hub/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:fruit_hub/features/auth/domain/repos/auth_repo.dart';
+import 'package:fruit_hub/features/products/repos/products_repo/products_repo.dart';
+import 'package:fruit_hub/features/products/repos/products_repo/products_repo_impl.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,5 +24,6 @@ Future<void> setupInjector() async {
       databaseService: sl<DatabaseService>(),
     ),
   );
+  sl.registerSingleton<ProductsRepo>(ProductsRepoImpl(sl<DatabaseService>()));
   await sl.allReady();
 }
