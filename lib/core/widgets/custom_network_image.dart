@@ -7,23 +7,20 @@ class CustomNetworkImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(4.0),
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        child: Image.network(
-          imageUrl,
-          fit: BoxFit.cover,
-          errorBuilder: (context, error, stackTrace) {
-            return Container(
-              color: Colors.grey.shade400,
-              height: 125,
-              width: double.infinity,
-              child: const Icon(Icons.error, color: Colors.red),
-            );
-          },
-        ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(4.0),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: Image.network(
+        imageUrl,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) {
+          return Container(
+            color: Colors.grey.shade400,
+            height: 125,
+            width: double.infinity,
+            child: const Icon(Icons.error, color: Colors.red),
+          );
+        },
       ),
     );
   }

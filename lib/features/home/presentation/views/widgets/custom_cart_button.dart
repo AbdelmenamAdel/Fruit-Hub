@@ -25,8 +25,8 @@ class CustomCartButton extends StatelessWidget {
               showBar(context, 'لا يوجد منتجات في السلة');
             }
           },
-          text: 'الدفع 16 جنيه',
-          // 'الدفع  ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} جنيه',
+          text:
+              'الدفع  ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} جنيه',
         );
       },
     );

@@ -34,8 +34,11 @@ class FruitItem extends StatelessWidget {
                 SizedBox(height: 40),
                 productEntity.imageUrl != null
                     ? Flexible(
-                        child: CustomNetworkImage(
-                          imageUrl: productEntity.imageUrl!,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                          child: CustomNetworkImage(
+                            imageUrl: productEntity.imageUrl!,
+                          ),
                         ),
                       )
                     : Container(
@@ -48,8 +51,8 @@ class FruitItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(
                     top: 4.0,
-                    left: 16.0,
-                    right: 16.0,
+                    left: 12.0,
+                    right: 12.0,
                     bottom: 8.0,
                   ),
                   child: Row(

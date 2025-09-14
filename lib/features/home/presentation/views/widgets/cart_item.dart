@@ -29,14 +29,21 @@ class CartItem extends StatelessWidget {
         return IntrinsicHeight(
           child: Row(
             children: [
-              Container(
-                width: 73,
-                height: 92,
-                decoration: const BoxDecoration(color: Color(0xFFF3F5F7)),
-                child: CustomNetworkImage(
-                  // imageUrl: carItemEntity.productEntity.imageUrl!,
-                  imageUrl:
-                      'https://t4.ftcdn.net/jpg/02/27/04/15/240_F_227041521_R30fm1zPGoX3hQeGkGgFAKykT5irrv79.jpg',
+              AspectRatio(
+                aspectRatio: 1,
+                child: Container(
+                  width: 80,
+                  padding: const EdgeInsets.all(3),
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFF3F5F7),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: CustomNetworkImage(
+                    // imageUrl: carItemEntity.productEntity.imageUrl!,
+                    imageUrl:
+                        'https://t4.ftcdn.net/jpg/02/27/04/15/240_F_227041521_R30fm1zPGoX3hQeGkGgFAKykT5irrv79.jpg',
+                  ),
                 ),
               ),
               const SizedBox(width: 17),
@@ -48,8 +55,7 @@ class CartItem extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          "nameeeee",
-                          // carItemEntity.productEntity.name,
+                          carItemEntity.productEntity.name,
                           style: TextStyles.bold13,
                         ),
                         const Spacer(),
@@ -64,8 +70,7 @@ class CartItem extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      '6 كم',
-                      // '${carItemEntity.calculateTotalWeight()} كم',
+                      '${carItemEntity.calculateTotalWeight()} كم',
                       textAlign: TextAlign.right,
                       style: TextStyles.regular13.copyWith(
                         color: AppColors.secondaryColor,
@@ -76,8 +81,7 @@ class CartItem extends StatelessWidget {
                         CartItemActionButtons(cartItemEntity: carItemEntity),
                         const Spacer(),
                         Text(
-                          '60 جنيه',
-                          // '${carItemEntity.calculateTotalPrice()} جنيه ',
+                          '${carItemEntity.calculateTotalPrice()} جنيه ',
                           style: TextStyles.bold16.copyWith(
                             color: AppColors.secondaryColor,
                           ),
