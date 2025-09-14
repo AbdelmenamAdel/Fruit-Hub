@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,6 +9,7 @@ import 'package:fruit_hub/core/app/bloc_observer.dart';
 import 'package:fruit_hub/core/app/internet_settings/connectivity_controller.dart';
 import 'package:fruit_hub/core/common/widgets/error_widget.dart';
 import 'package:fruit_hub/core/services/dependancy_injection/service_locator.dart';
+import 'package:fruit_hub/core/widgets/custom_error_widget.dart';
 import 'package:fruit_hub/firebase_options.dart';
 
 void main() async {
@@ -21,8 +23,13 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-
-  runApp(const AppRoot());
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    return CustomErrorWidget(text: 'حدث خطأ ما، يرجى المحاولة لاحقًا');
+  };
+  runApp(
+    const AppRoot(),
+    // DevicePreview(enabled: true, builder: (context) => const AppRoot())
+  );
 }
 
 void _setupGlobalConfigs() {

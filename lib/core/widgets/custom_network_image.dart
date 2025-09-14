@@ -17,7 +17,9 @@ class CustomNetworkImage extends StatelessWidget {
           fit: BoxFit.cover,
           errorBuilder: (context, error, stackTrace) {
             return Container(
-              color: Colors.grey,
+              color: Colors.grey.shade400,
+              height: 125,
+              width: double.infinity,
               child: const Icon(Icons.error, color: Colors.red),
             );
           },
