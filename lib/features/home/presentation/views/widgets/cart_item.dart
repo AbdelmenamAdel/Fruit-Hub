@@ -40,9 +40,9 @@ class CartItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: CustomNetworkImage(
-                    // imageUrl: carItemEntity.productEntity.imageUrl!,
-                    imageUrl:
-                        'https://t4.ftcdn.net/jpg/02/27/04/15/240_F_227041521_R30fm1zPGoX3hQeGkGgFAKykT5irrv79.jpg',
+                    imageUrl: carItemEntity.productEntity.imageUrl!,
+                    // imageUrl:
+                    //     'https://t4.ftcdn.net/jpg/02/27/04/15/240_F_227041521_R30fm1zPGoX3hQeGkGgFAKykT5irrv79.jpg',
                   ),
                 ),
               ),

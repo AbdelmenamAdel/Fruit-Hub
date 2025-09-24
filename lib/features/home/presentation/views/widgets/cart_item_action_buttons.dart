@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/styles/texts/app_text_styles.dart';
 import 'package:fruit_hub/core/utils/app_colors.dart';
 import 'package:fruit_hub/features/home/domain/entites/cart_item_entity.dart';
+import 'package:fruit_hub/features/home/presentation/cubits/cart_cubit/cart_cubit.dart';
 import 'package:fruit_hub/features/home/presentation/cubits/cart_item_cubit/cart_item_cubit.dart';
 
 class CartItemActionButtons extends StatelessWidget {
@@ -37,6 +38,10 @@ class CartItemActionButtons extends StatelessWidget {
           onPressed: () {
             cartItemEntity.decreasQuantity();
             context.read<CartItemCubit>().updateCartItem(cartItemEntity);
+            // if item quantity in the cart is zero remove it
+            if (cartItemEntity.quanitty <= 0) {
+              context.read<CartCubit>().deleteCarItem(cartItemEntity);
+            }
           },
         ),
       ],

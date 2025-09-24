@@ -23,7 +23,6 @@ class ProductsRepoImpl extends ProductsRepo {
                 },
               )
               as List<Map<String, dynamic>>;
-
       List<ProductEntity> products = data
           .map((e) => ProductModel.fromJson(e).toEntity())
           .toList();
