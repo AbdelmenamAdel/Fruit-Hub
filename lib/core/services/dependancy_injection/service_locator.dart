@@ -1,3 +1,5 @@
+import 'package:fruit_hub/core/repos/orders_repo/orders_repo.dart';
+import 'package:fruit_hub/core/repos/orders_repo/orders_repo_impl.dart';
 import 'package:fruit_hub/core/services/backend/data_service.dart';
 import 'package:fruit_hub/core/services/backend/firebase_auth_service.dart';
 import 'package:fruit_hub/core/services/backend/firestore_service.dart';
@@ -25,5 +27,6 @@ Future<void> setupInjector() async {
     ),
   );
   sl.registerSingleton<ProductsRepo>(ProductsRepoImpl(sl<DatabaseService>()));
+  sl.registerSingleton<OrdersRepo>(OrdersRepoImpl(sl<DatabaseService>()));
   await sl.allReady();
 }

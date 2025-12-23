@@ -2,15 +2,13 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
+import 'package:fruit_hub/core/utils/app_keys.dart';
 import 'package:fruit_hub/core/widgets/custom_button.dart';
 import 'package:fruit_hub/core/widgets/custom_snackbar.dart';
-import 'package:fruit_hub/core/widgets/fruit_item.dart';
 import 'package:fruit_hub/features/checkout/domain/entites/order_entity.dart';
 import 'package:fruit_hub/features/checkout/domain/entites/paypal_payment_entity/paypal_payment_entity.dart';
 import 'package:fruit_hub/features/checkout/presentation/manger/add_order_cubit/add_order_cubit.dart';
-import 'package:fruit_hub/features/checkout/presentation/views/widgets/active_step_item.dart';
 import 'package:fruit_hub/features/checkout/presentation/views/widgets/checkout_steps.dart';
-import 'package:fruit_hub/features/checkout/presentation/views/widgets/in_active_step_item.dart';
 import 'package:provider/provider.dart';
 
 import 'checkout_steps_page_view.dart';
@@ -153,9 +151,11 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context) => PaypalCheckoutView(
+          returnURL: "https://example.com/paypal-success",
+          cancelURL: "https://example.com/paypal-cancel",
           sandboxMode: true,
-          clientId: kPaypalClientId,
-          secretKey: kPaypalSecretKey,
+          clientId: AppKeys.kPaypalClientId,
+          secretKey: AppKeys.kPaypalSecretKey,
           transactions: [paypalPaymentEntity.toJson()],
           note: "Contact us for any questions on your order.",
           onSuccess: (Map params) async {

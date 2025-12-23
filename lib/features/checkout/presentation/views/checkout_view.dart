@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/common/helpers/get_user.dart';
@@ -29,6 +31,7 @@ class _CheckoutViewState extends State<CheckoutView> {
   @override
   void initState() {
     super.initState();
+    log('CheckoutView - initState: cartEntity = ${widget.cartEntity}');
     orderEntity = OrderInputEntity(
       uID: getUser().uId,
       widget.cartEntity,

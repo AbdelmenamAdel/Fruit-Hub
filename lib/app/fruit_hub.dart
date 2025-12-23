@@ -28,13 +28,12 @@ class FruitHub extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            supportedLocales: const [
-              Locale('en', "US"),
-              Locale('ar', "EG"),
-            ],
-            locale: Locale('ar', 'EG'
-                // cubit.langCode,
-                ),
+            supportedLocales: const [Locale('en', "US"), Locale('ar', "EG")],
+            locale: Locale(
+              'ar',
+              'EG',
+              // cubit.langCode,
+            ),
             theme: themeLight(),
             darkTheme: themeDark(),
             themeMode: _getThemeMode(context.watch<AppCubit>().appTheme),
@@ -47,7 +46,7 @@ class FruitHub extends StatelessWidget {
                     if (value) {
                       return const SizedBox.shrink();
                     } else {
-                      return const NoInternet();
+                      return const NoInternetWidget();
                     }
                   },
                 ),

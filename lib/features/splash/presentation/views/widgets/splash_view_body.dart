@@ -30,22 +30,18 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            SvgPicture.asset(Assets.imagesPlant),
-          ],
+          children: [SvgPicture.asset(Assets.imagesPlant)],
         ),
         SvgPicture.asset(Assets.imagesLogo),
-        SvgPicture.asset(
-          Assets.imagesSplashBottom,
-          fit: BoxFit.fill,
-        ),
+        SvgPicture.asset(Assets.imagesSplashBottom, fit: BoxFit.fill),
       ],
     );
   }
 
   void excuteNaviagtion() {
-    bool isOnBoardingViewSeen =
-        sl<LocalStorage>().getBool(kIsOnBoardingViewSeen);
+    bool isOnBoardingViewSeen = sl<LocalStorage>().getBool(
+      kIsOnBoardingViewSeen,
+    );
     Future.delayed(const Duration(seconds: 3), () {
       if (isOnBoardingViewSeen) {
         var isLoggedIn = FirebaseAuthService().isLoggedIn();

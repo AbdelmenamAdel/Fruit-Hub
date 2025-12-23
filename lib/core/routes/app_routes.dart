@@ -2,6 +2,9 @@ import 'package:fruit_hub/core/Routes/base_routes.dart';
 import 'package:fruit_hub/core/common/screens/page_under_build.dart';
 import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
 import 'package:fruit_hub/features/auth/presentation/views/signup_view.dart';
+import 'package:fruit_hub/features/best_selling_fruits/presentation/views/best_selling_view.dart';
+import 'package:fruit_hub/features/checkout/presentation/views/checkout_view.dart';
+import 'package:fruit_hub/features/home/domain/entites/cart_entity.dart';
 import 'package:fruit_hub/features/home/presentation/views/main_view.dart';
 import 'package:fruit_hub/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:fruit_hub/features/splash/presentation/views/splash_view.dart';
@@ -14,9 +17,9 @@ class AppRoutes {
   static const String signUp = 'signUp';
   static const String main = 'main';
   static const String bestSelling = 'bestSelling';
-
+  static const String checkout = 'checkout';
   static Route<void> onGenerateRoute(RouteSettings settings) {
-    // final args = settings.arguments;
+    final args = settings.arguments;
     switch (settings.name) {
       case initial:
         return BaseRoute(page: const SplashView());
@@ -29,8 +32,10 @@ class AppRoutes {
       case main:
         return BaseRoute(page: const MainView());
 
-      // case bestSelling:
-      //   return MaterialPageRoute(builder: (context) => const BestSellingView());
+      case bestSelling:
+        return MaterialPageRoute(builder: (context) => const BestSellingView());
+      case checkout:
+        return BaseRoute(page: CheckoutView(cartEntity: args as CartEntity));
       default:
         return BaseRoute(page: const PageUnderBuildScreen());
     }
